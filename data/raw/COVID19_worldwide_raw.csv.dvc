@@ -1,0 +1,7 @@
+md5: da7bd5c35591d6769a44d544b13b49b9
+outs:
+- md5: 6c379663426e8135df92af20075e33b4
+  path: COVID19_worldwide_raw.csv
+  cache: true
+  metric: false
+  persist: false

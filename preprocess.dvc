@@ -1,0 +1,17 @@
+md5: f071416f134f289e486986d12ab29390
+cmd: Rscript scripts/preprocess.R
+deps:
+- md5: 6c379663426e8135df92af20075e33b4
+  path: data/raw/COVID19_worldwide_raw.csv
+- md5: 4f179674fdffe419826ff173d8fcdb36
+  path: data/raw/Global_Mobility_Report.csv
+- md5: ac537d89c981b02641203d606123c78a
+  path: data/raw/UN_dataset.tsv
+- md5: a82b39358ca5f7a37941b60a604c745c
+  path: scripts/preprocess.R
+outs:
+- md5: bcc995433b8502d4c0c1dd761f313786
+  path: data/preprocessed/DIB_dataset.tsv
+  cache: true
+  metric: false
+  persist: false
