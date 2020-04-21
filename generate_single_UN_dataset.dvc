@@ -1,0 +1,13 @@
+md5: 887655249fb0194961ab3a59056ea14b
+cmd: Rscript scripts/aggregate_UN_data.R
+deps:
+- md5: dd335ac87bf5b82f3a5e47a51539b49b.dir
+  path: data/raw/UN Data
+- md5: c63a5aabc7f0e2a7f8fdffb5ac1a0c01
+  path: scripts/aggregate_UN_data.R
+outs:
+- md5: ac537d89c981b02641203d606123c78a
+  path: data/raw/UN_dataset.tsv
+  cache: true
+  metric: false
+  persist: false
