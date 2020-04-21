@@ -32,9 +32,6 @@ colnames(covid) <- c('date', 'day', 'month', 'year', 'new_cases', 'new_deaths',
                      'pop_data_2018')
 
 # Country details from UN Data
-# There were ~ in 0 or 0.0 numbers in the raw data file. I had to manually
-# replace ~0 and ~0.0 by 0 and 0.0, otherwise R wouldn't understand this is
-# a number.
 country_details <- read_delim(file = 'data/raw/UN_dataset.tsv', delim = '\t',
                             col_types = paste(c('c',
                                                 rep('d', 173),
@@ -134,11 +131,11 @@ preprocessed_dataset %>%
 
 # Before merging to get more info about the countries, we must make sure all
 # country names are the same.
-# unique(preprocessed_dataset$country_name)[which(
-#      unique(preprocessed_dataset$country_name) %in%
-#        unique(country_details$country) == FALSE
-#    )
-#  ]
+#unique(preprocessed_dataset$country_name)[which(
+#     unique(preprocessed_dataset$country_name) %in%
+#       unique(country_details$region_name) == FALSE
+#   )
+# ]
 
 country_details %>%
   mutate(region_name = case_when(
@@ -156,6 +153,26 @@ country_details %>%
     region_name == 'Viet Nam'  ~ 'Vietnam',
     TRUE ~ region_name)
   ) -> country_details
+
+# In some datastes US appears as United States, and in others as United States
+# of America. The naming was fixed earlier, but we have two rows for US. Fix.
+# ids <- which(country_details$region_name == 'United States')
+
+country_details[88,][,17:42] <- country_details[217,][,17:42]
+country_details[88,][,45:51] <- country_details[217,][,45:51]
+country_details[88,][,53:55] <- country_details[217,][,53:55]
+country_details[88,][,63:72] <- country_details[217,][,63:72]
+country_details[88,][,77:80] <- country_details[217,][,77:80]
+country_details[88,][,90:93] <- country_details[217,][,90:93]
+country_details[88,][,97:104] <- country_details[217,][,97:104]
+country_details[88,][,112:114] <- country_details[217,][,112:114]
+country_details[88,][,116:118] <- country_details[217,][,116:118]
+country_details[88,][,128:133] <- country_details[217,][,128:133]
+country_details[88,][,143:148] <- country_details[217,][,143:148]
+country_details[88,][,150] <- country_details[217,][,150]
+country_details[88,][,152:157] <- country_details[217,][,152:157]
+country_details[88,][,159:175] <- country_details[217,][,159:175]
+country_details <- country_details[-217, ]
 
 ####
 #
@@ -198,13 +215,23 @@ preprocessed_dataset %>%
 preprocessed_dataset %>%
   pivot_wider(names_from = plot_name, values_from = variation) -> preprocessed_dataset
 
-# Add epidemiological week to column
+# Add n_days_since_1st_case column
 preprocessed_dataset %>%
   group_by(country_name) %>%
   mutate(first_case_date = min(date[acc_cases > 0])) %>%
   mutate(n_days_since_1st_case =
            if_else(acc_cases > 0,
                    as.numeric(date - min(date[acc_cases > 0])+1),
+                   0)) %>%
+  ungroup() -> preprocessed_dataset
+
+# Add n_days_since_1st_death column
+preprocessed_dataset %>%
+  group_by(country_name) %>%
+  mutate(first_death_date = min(date[acc_deaths > 0])) %>%
+  mutate(n_days_since_1st_death =
+           if_else(acc_deaths > 0,
+                   as.numeric(date - min(date[acc_deaths > 0])+1),
                    0)) %>%
   ungroup() -> preprocessed_dataset
 
@@ -245,6 +272,22 @@ preprocessed_dataset %>%
     TRUE ~ first_case_date
     )
   ) -> preprocessed_dataset
+
+# Fix n_days since 1st case for countries that had 1st case before Feb 11
+countries <- c('Thailand', 'Japan', 'South Korea', 'United States', 'Taiwan',
+               'Hong Kong', 'Singapore', 'Vietnam', 'France', 'Nepal',
+               'Australia', 'Canada', 'Malaysia', 'Cambodia', 'Germany',
+               'Sri Lanka', 'Finland', 'United Arab Emirates', 'India',
+               'Italy', 'Philippines', 'Spain', 'Sweden', 'United Kingdom',
+               'Belgium', 'Egypt')
+preprocessed_dataset %>%
+  group_by(country_name) %>%
+  mutate(n_days_since_1st_case =
+           if_else(country_name %in% countries,
+                   as.numeric(date - first_case_date)+1,
+                   n_days_since_1st_case)) %>%
+  ungroup() -> preprocessed_dataset
+rm(countries)
 
 # Saving final preprocessed dataset ---------------------------------------
 
