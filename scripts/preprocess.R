@@ -190,11 +190,6 @@ preprocessed_dataset %>%
   filter(is.na(region_name)) %>%
   select(-c('region_name', 'county_name')) -> preprocessed_dataset
 
-# There are two columns for population (2018, World Bank and 2019, UN).
-# Keep the most updated one.
-preprocessed_dataset %>%
-  select(-c(pop_data_2018)) -> preprocessed_dataset
-
 colnames(preprocessed_dataset)[10:182] %>%
   # Make them all lowercase
   tolower %>%
