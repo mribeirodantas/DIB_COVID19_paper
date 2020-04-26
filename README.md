@@ -16,15 +16,18 @@ If you're on GNU/Linux, you can install DVC with pip:
 More install options [here](https://dvc.org/doc/install).
 
 ## Get data
-If you move into data/preprocessed/ you will see the folder is empty. Yes, it
-is, dataset files should not be there, afterall they are not tracked by git. The
-same thing applies to data/raw. In order to get the data, you should run:
+If you move into data/preprocessed/ you will see  that the folder is empty. Yes,
+it is, dataset files should not be there, afterall they are not tracked by git.
+The same thing applied to data/raw. It is not recommended to track big files and
+objects with git. The documentation folder folder will not be there either
+(though you can see the documentation.dvc file there, which means DVC tracks it
+).
 
 `dvc pull`
 
 It's the same reasoning as if you wanted to get the latest tracked code by git
 (git pull). Now you will find the files in the data/raw and data/preprocessed
-files.
+files, and also the documentation files in the documentation folder.
 
 ## Reproduce the pipeline
 Let's say you have an updated version of one or more of the raw files, on the
