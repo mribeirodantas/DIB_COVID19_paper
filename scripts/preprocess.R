@@ -158,6 +158,8 @@ country_details %>%
 # of America. The naming was fixed earlier, but we have two rows for US. Fix.
 # ids <- which(country_details$region_name == 'United States')
 
+# Some variables are there for US, others are there only for United States.
+# Merge.
 country_details[88,][,17:42] <- country_details[217,][,17:42]
 country_details[88,][,45:51] <- country_details[217,][,45:51]
 country_details[88,][,53:55] <- country_details[217,][,53:55]
@@ -190,14 +192,14 @@ preprocessed_dataset %>%
   filter(is.na(region_name)) %>%
   select(-c('region_name', 'county_name')) -> preprocessed_dataset
 
-colnames(preprocessed_dataset)[10:182] %>%
+colnames(preprocessed_dataset)[10:183] %>%
   # Make them all lowercase
   tolower %>%
   # Replace space by underscore
   gsub(' ', '_', .) %>%
   gsub('-', '_', .) %>%
   gsub('_+', '_', .) %>%
-  gsub(',', '', .) -> colnames(preprocessed_dataset)[10:182]
+  gsub(',', '', .) -> colnames(preprocessed_dataset)[10:183]
 
 # Create columns for lethality rate
 preprocessed_dataset %>%
