@@ -116,9 +116,79 @@ df <- rbind(df,
 colnames(df) <- c('Variable name', 'Year', 'Source')
 
 # Add description for some variables
-df$Description <- NULL
+df$Description <- NA
 
+df %>%
+  mutate(Description = case_when(
+    `Variable name` == 'retail_recreation' ~
+      paste0('Mobility trends for places like restaurants, cafes, shopping ',
+             'centers theme parks, museums, libraries, andmovie theaters.',
+             'This variable indicates how visits and length of stay to this ',
+             'category of location has varied (in percent, positively or ',
+             'negatively) compared to the baseline. The baseline is the ',
+             'median value, for the corresponding day of the week, during the ',
+             '5-week period Jan 3–Feb 6, 2020'),
+    `Variable name` == 'grocery_pharmacy' ~
+      paste0('Mobility trends for places like grocery markets, ',
+             'food warehouses, farmers markets, specialty food shops, drug ',
+             'stores, and pharmacies.',
+             'This variable indicates how visits and length of stay to this ',
+             'category of location has varied (in percent, positively or ',
+             'negatively) compared to the baseline. The baseline is the ',
+             'median value, for the corresponding day of the week, during the ',
+             '5-week period Jan 3–Feb 6, 2020'),
+    `Variable name` == 'parks' ~
+      paste0('Mobility trends for places like national parks, public beaches, ',
+             'marinas, dog parks, plazas, and public gardens.',
+             'This variable indicates how visits and length of stay to this ',
+             'category of location has varied (in percent, positively or ',
+             'negatively) compared to the baseline. The baseline is the ',
+             'median value, for the corresponding day of the week, during the ',
+             '5-week period Jan 3–Feb 6, 2020'),
+    `Variable name` == 'transit_stations' ~
+      paste0('Mobility trends for places like public transport hubs such as ',
+             'subway, bus, and train stations.',
+             'This variable indicates how visits and length of stay to this ',
+             'category of location has varied (in percent, positively or ',
+             'negatively) compared to the baseline. The baseline is the ',
+             'median value, for the corresponding day of the week, during the ',
+             '5-week period Jan 3–Feb 6, 2020'),
+    `Variable name` == 'workplaces' ~
+      paste0('Mobility trends for places of work.',
+             'This variable indicates how visits and length of stay to this ',
+             'category of location has varied (in percent, positively or ',
+             'negatively) compared to the baseline. The baseline is the ',
+             'median value, for the corresponding day of the week, during the ',
+             '5-week period Jan 3–Feb 6, 2020'),
+    `Variable name` == 'residential' ~
+      paste0('Mobility trends for places of residence.',
+             'This variable indicates how visits and length of stay to this ',
+             'category of location has varied (in percent, positively or ',
+             'negatively) compared to the baseline. The baseline is the ',
+             'median value, for the corresponding day of the week, during the ',
+             '5-week period Jan 3–Feb 6, 2020'),
+    `Variable name` == 'date' ~
+      paste0('Date for epidemiological variables. Format: YY-MM-DD'),
+    `Variable name` == 'new_cases' ~
+      paste0('Number of new cases for a specific date for a given country.'),
+    `Variable name` == 'new_deaths' ~
+      paste0('Number of new deaths for a specific date for a given country.'),
+    `Variable name` == 'acc_cases' ~
+      paste0('Accumulated number of cases up to the date for a given country.'),
+    `Variable name` == 'acc_deaths' ~
+      paste0('Accumulated number of deaths up to the date for a given ',
+             'country.'),
+    `Variable name` == 'lethality_rate_percent' ~
+      paste0('Lethality rate in percent up to the last date in the dataset for',
+             'a given country'),
+    `Variable name` == 'first_case_date' ~
+      paste0('The date of the first confirmed case of COVID-19 for a given ',
+             'country.'),
+    `Variable name` == 'first_death_date' ~
+      paste0('The date of the first confirmed death due to COVID-19 for a ',
+             'given country, starting from February 15th, 2020.'),
+    TRUE ~ '')) -> df
 
 
 WriteXLS(x = df, ExcelFileName = 'data_dictionary.xls',
-         SheetNames = 'Data Dictionary')
+         SheetNames = 'Data Dictionary', BoldHeaderRow=TRUE)
