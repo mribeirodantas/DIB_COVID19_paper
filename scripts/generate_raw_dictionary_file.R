@@ -183,10 +183,12 @@ df %>%
              'a given country'),
     `Variable name` == 'first_case_date' ~
       paste0('The date of the first confirmed case of COVID-19 for a given ',
-             'country.'),
+             'country. If it is NA it means that this country does not have ',
+             'any death confirmed.'),
     `Variable name` == 'first_death_date' ~
       paste0('The date of the first confirmed death due to COVID-19 for a ',
-             'given country, starting from February 15th, 2020.'),
+             'given country, starting from February 15th, 2020. If it is NA',
+             'it means that this country does not have any death confirmed.'),
     TRUE ~ '')) -> df
 
 
