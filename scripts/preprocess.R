@@ -15,7 +15,7 @@ raw_dataset <- read_csv(file = 'data/raw/Global_Mobility_Report.csv',
                                                 rep('d', 6)),
                                               collapse=''))
 
-colnames(raw_dataset) <- c('country_code', 'locality_name', 'region_name',
+colnames(raw_dataset) <- c('locality_code', 'locality_name', 'region_name',
                            'county_name', 'date', 'retail_recreation',
                            'grocery_pharmacy', 'parks', 'transit_stations',
                            'workplaces', 'residential')
@@ -325,6 +325,15 @@ preprocessed_dataset %>%
                    n_days_since_1st_case)) %>%
   ungroup() -> preprocessed_dataset
 rm(countries)
+
+# Check documentation and see if variable names are correct ###
+# According to the file below, maternal mortality rate is per 100k livebirths,
+# not 100k people.
+# SYB62_246_201907_Population growth and indicators of fertility and mortality.pdf
+id = which(colnames(preprocessed_dataset) ==
+             'maternal_mortality_ratio_(deaths_per_100000_population)_2015')
+colnames(preprocessed_dataset)[id] <- paste0('maternal_mortality_ratio_(deaths',
+                                             '_per_100000_livebirths)_2015')
 
 # Saving final preprocessed dataset ---------------------------------------
 
