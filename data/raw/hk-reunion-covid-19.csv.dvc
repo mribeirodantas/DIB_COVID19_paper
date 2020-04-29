@@ -1,0 +1,7 @@
+md5: 484ac77dc80ef22100bbac0e8fcd85bc
+outs:
+- md5: 4c62836ac305162646d5a5b3f8201841
+  path: hk-reunion-covid-19.csv
+  cache: true
+  metric: false
+  persist: false
