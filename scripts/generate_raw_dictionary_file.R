@@ -1,18 +1,18 @@
 library(readr)
+library(purrr)
 library(dplyr)
 library(tidyr)
 library(WriteXLS)
 
 # Read all raw datasets from UN into one dataframe ---------
 
-df <- list.files(path='data/raw/UN Data/', full.names = TRUE) %>%
-  lapply(read_delim, delim = ',', skip = 1) %>%
-  bind_rows
+df <- fs::dir_ls('data/raw/UN Data/') %>%
+  map_dfr(read_delim, delim = ',', skip = 1, .id = "filepath")
 
 # Keep the variables required to create the data dictionary
 
 df %>%
-  select(Series, Year, Source) -> df
+  select(Series, Year, Source, filepath) -> df
 
 # Keep only latest data for each variable
 df %>%
@@ -113,7 +113,7 @@ df <- rbind(df,
                                                        'counting the first death ',
                                                        'after February, 15th.'))
             )
-colnames(df) <- c('Variable name', 'Year', 'Source')
+colnames(df) <- c('Variable name', 'Year', 'Source', 'Filepath')
 
 # Add description for some variables
 df$Description <- NA
@@ -191,6 +191,9 @@ df %>%
              'it means that this country does not have any death confirmed.'),
     TRUE ~ '')) -> df
 
+df$Filepath[c(174, 181:183, 190:193)] <- 'Does not apply. Engineered variable'
+df$Filepath[c(175:180)] <- 'data/raw/COVID19_worldwide_raw.csv'
+df$Filepath[c(184:189)] <- 'data/raw/Global_Mobility_Report.csv'
 
 WriteXLS(x = df, ExcelFileName = 'data_dictionary.xls',
          SheetNames = 'Data Dictionary', BoldHeaderRow=TRUE)
