@@ -65,7 +65,8 @@ rm(raw_dataset)
 
 covid %>%
   # These columns are useless
-  select(-c('day', 'month', 'year', 'country_id', 'territory_id')) %>%
+  select(-c('day', 'month', 'year', 'country_id', 'territory_id',
+            'pop_data_2018')) %>%
   # Convert date to Date
   mutate(date, date = dmy(covid$date)) %>%
   # Replace _ by space in country names
@@ -78,18 +79,7 @@ covid_hk_re %>%
   # Convert date to Date
   mutate(date, date = mdy(covid_hk_re$date)) -> covid_hk_re
 
-covid_hk_re$pop_data_2018 <- NA
 covid <- rbind(covid, covid_hk_re)
-
-# Adds pop data
-covid %>%
-  # From World Bank https://data.worldbank.org/indicator/sp.pop.totl
-  mutate(pop_data_2018 = ifelse(locality_name == 'Hong Kong',
-                               7451000, pop_data_2018)) %>%
-  # From eurostats
-  # https://pt.wikipedia.org/wiki/Reunião_(departamento)#cite_note-GDP-2
-  mutate(pop_data_2018 = ifelse(locality_name == 'Réunion',
-                               865826, pop_data_2018)) -> covid
 
 rm(covid_hk_re)
 
@@ -110,9 +100,7 @@ covid %>%
 covid %>%
   complete(date = seq.Date(min(date), max(date), by='day'), locality_name) %>%
   mutate(new_cases = ifelse(is.na(new_cases), 0, new_cases)) %>%
-  mutate(new_deaths = ifelse(is.na(new_deaths), 0, new_deaths)) %>%
-  group_by(locality_name) %>%
-  fill(pop_data_2018, .direction = 'updown') -> covid
+  mutate(new_deaths = ifelse(is.na(new_deaths), 0, new_deaths)) -> covid
 
 ####
 #
@@ -137,9 +125,7 @@ preprocessed_dataset %>%
   mutate(new_cases = ifelse(locality_name == 'Tajikistan',
                             0, new_cases)) %>%
   mutate(new_deaths = ifelse(locality_name == 'Tajikistan',
-                             0, new_deaths)) %>%
-  mutate(pop_data_2018 = ifelse(locality_name == 'Tajikistan',
-                                9100000, pop_data_2018)) -> preprocessed_dataset
+                             0, new_deaths)) -> preprocessed_dataset
 
 # Create column with accumulate cases/death
 preprocessed_dataset %>%
@@ -228,14 +214,14 @@ preprocessed_dataset %>%
   filter(is.na(region_name)) %>%
   select(-c('region_name', 'county_name')) -> preprocessed_dataset
 
-colnames(preprocessed_dataset)[10:183] %>%
+colnames(preprocessed_dataset)[10:182] %>%
   # Make them all lowercase
   tolower %>%
   # Replace space by underscore
   gsub(' ', '_', .) %>%
   gsub('-', '_', .) %>%
   gsub('_+', '_', .) %>%
-  gsub(',', '', .) -> colnames(preprocessed_dataset)[10:183]
+  gsub(',', '', .) -> colnames(preprocessed_dataset)[10:182]
 
 # Create columns for lethality rate
 preprocessed_dataset %>%
