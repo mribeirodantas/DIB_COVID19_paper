@@ -7,7 +7,7 @@ library(WriteXLS)
 
 # Read all raw datasets from UN into one dataframe ---------
 
-df <- fs::dir_ls('data/raw/UN Data/') %>%
+df <- fs::dir_ls('data/raw/UN Data/', glob='*.csv') %>%
   map_dfr(read_delim, delim = ',', skip = 1, .id = "filepath")
 
 # Keep the variables required to create the data dictionary
