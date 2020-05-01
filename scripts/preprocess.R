@@ -24,12 +24,12 @@ colnames(raw_dataset) <- c('locality_code', 'locality_name', 'region_name',
 
 covid <- read_delim(file = 'data/raw/COVID19_worldwide_raw.csv', na = '',
                     col_types = cols('c', 'i', 'i', 'i', 'i', 'i', 'c', 'c',
-                                     'c', 'i'),
+                                     'c', 'i', 'c'),
                     delim = ',')
 
 colnames(covid) <- c('date', 'day', 'month', 'year', 'new_cases', 'new_deaths',
                      'locality_name', 'country_id', 'territory_id',
-                     'pop_data_2018')
+                     'pop_data_2018', 'continent')
 
 # COVID-19 data for Réunion and Hong Kong  that are missing in the ECDC dataset
 # Source: John Hopkins University https://github.com/CSSEGISandData/COVID-19
@@ -66,7 +66,7 @@ rm(raw_dataset)
 covid %>%
   # These columns are useless
   select(-c('day', 'month', 'year', 'country_id', 'territory_id',
-            'pop_data_2018')) %>%
+            'pop_data_2018', 'continent')) %>%
   # Convert date to Date
   mutate(date, date = dmy(covid$date)) %>%
   # Replace _ by space in country names
