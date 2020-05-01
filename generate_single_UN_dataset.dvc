@@ -1,8 +1,79 @@
-md5: 887655249fb0194961ab3a59056ea14b
+md5: aefe90c8c32ff162e879353dbb26b366
 cmd: Rscript scripts/aggregate_UN_data.R
 deps:
-- md5: dd335ac87bf5b82f3a5e47a51539b49b.dir
-  path: data/raw/UN Data
+- md5: 9c9d964d9036ceea96f864cd655e7e41
+  path: data/raw/UN Data/SYB58_35_Index of industrial production.csv
+- md5: ba4b5812da8a9700308bc21924225e50
+  path: data/raw/UN Data/SYB60_312_Carbon Dioxide Emission Estimates.csv
+- md5: ee78b455c64667c8406810602877bfbe
+  path: data/raw/UN Data/SYB61_12_Agricultural Production Indices.csv
+- md5: 62a066fa45d106eccdf36e236298c028
+  path: data/raw/UN Data/SYB61_253_Population Growth Rates in Urban areas and Capital
+    cities.csv
+- md5: a730e93da1ac779277f4530ddf948738
+  path: data/raw/UN Data/SYB62_1_201907_Population, Surface Area and Density.csv
+- md5: 02c9b22534096171365618e7543220bb
+  path: data/raw/UN Data/SYB62_123_201907_Total Imports, Exports and Balance of Trade.csv
+- md5: e12af62d34294ea0361858f6d54270ff
+  path: data/raw/UN Data/SYB62_125_201907_Balance of Payments.csv
+- md5: 5b8d619ec7fe1bd845a74a0fb99745ef
+  path: data/raw/UN Data/SYB62_128_201907_Consumer Price Index.csv
+- md5: cfc1991fad2187db027cafe59d113d7a
+  path: data/raw/UN Data/SYB62_130_201907_Exchange Rates.csv
+- md5: e8df602fccc6523fa7d3256c61d5914e
+  path: data/raw/UN Data/SYB62_145_201904_Land.csv
+- md5: 5874fff5667658c8e322a7ab6ca1fcf0
+  path: data/raw/UN Data/SYB62_153_201906_Gross Value Added by Economic Activity.csv
+- md5: f200bbacb1708bb6e7d61865af7e5e0c
+  path: data/raw/UN Data/SYB62_154_201906_Health Personnel.csv
+- md5: 5d0275fa6ce8ee83f5083ab190653821
+  path: data/raw/UN Data/SYB62_200_201905_Employment.csv
+- md5: f7868cc3e29e34be8d23741663b314b8
+  path: data/raw/UN Data/SYB62_223_201907_Net Disbursements from Official ODA from
+    Donors.csv
+- md5: 11517ac7e5e28383062b319f7f207df0
+  path: data/raw/UN Data/SYB62_226_201907_Net Disbursements from Official ODA to Recipients.csv
+- md5: 48da8b4d014f49770a81534df5f1d9cc
+  path: data/raw/UN Data/SYB62_230_201904_GDP and GDP Per Capita.csv
+- md5: 41e6d2f1e0c44d5479e19164171a3da0
+  path: data/raw/UN Data/SYB62_245_201905_Public Expenditure on Education.csv
+- md5: b9176a587c18fbc9084c67d4bc440bdb
+  path: data/raw/UN Data/SYB62_246_201907_Population Growth, Fertility and Mortality
+    Indicators.csv
+- md5: 3f5b40e0c5c52f83fbfcca51013ddb1f
+  path: data/raw/UN Data/SYB62_263_201904_Production, Trade and Supply of Energy.csv
+- md5: e37b38fe8e1c514c90b87c5dec25c81a
+  path: data/raw/UN Data/SYB62_264_201902_Patents.csv
+- md5: d1e747b2340b9aa65404a0062024be87
+  path: data/raw/UN Data/SYB62_285_201904_Research and Development Staff.csv
+- md5: 4298efc9d34e2031ab78355ecf332d2e
+  path: data/raw/UN Data/SYB62_286_201904_GDP on R&D.csv
+- md5: 99e2f88a12e7f56ce0ecbabbf72e21c2
+  path: data/raw/UN Data/SYB62_309_201906_Education.csv
+- md5: fd75fefd718fc9e2a1d80bb5d84fcde4
+  path: data/raw/UN Data/SYB62_313_201907_Threatened Species.csv
+- md5: 810a4fdcc6150600723f76ffed960720
+  path: data/raw/UN Data/SYB62_314_201904_Internet Usage.csv
+- md5: c5958fbe4bb6f9dee31ce3f0aa9dcf04
+  path: data/raw/UN Data/SYB62_315_201906_Water and Sanitation Services.csv
+- md5: 62ea227bc1cad2f03dbe725d03cd0c3a
+  path: data/raw/UN Data/SYB62_317_201905_Seats held by Women in Parliament.csv
+- md5: 20a7e7b9b64b62d0707cc913ba144d47
+  path: data/raw/UN Data/SYB62_319_201906_Ratio of Girls to Boys in Education.csv
+- md5: 2507d9006397678f2fc4f688127ed226
+  path: data/raw/UN Data/SYB62_323_201906_Teaching Staff in Education.csv
+- md5: 49d3f49f984f61b31de4ed7dd114bd76
+  path: data/raw/UN Data/SYB62_327_201907_International Migrants and Refugees.csv
+- md5: 96c22545d7bd0e12a036018e1df7d3dd
+  path: data/raw/UN Data/SYB62_328_201904_Intentional Homicides and Other Crimes.csv
+- md5: 753393f93d3b6e5d3fe940a302770e07
+  path: data/raw/UN Data/SYB62_329_201904_Labour Force and Unemployment.csv
+- md5: fb55792a13cc53107831b747638e3395
+  path: data/raw/UN Data/SYB62_330_201907_Major Trading Partners.csv
+- md5: 8f52e307d5ec77056bf7ca6d0755fe94
+  path: data/raw/UN Data/SYB63_176_202003_Tourist-Visitors Arrival and Expenditure.csv
+- md5: 510656f91274af57cc3851215d342d2c
+  path: data/raw/UN Data/SYB63_325_202003_Expenditure on Health.csv
 - md5: c63a5aabc7f0e2a7f8fdffb5ac1a0c01
   path: scripts/aggregate_UN_data.R
 outs:

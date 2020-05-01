@@ -1,0 +1,7 @@
+md5: 03f4a8d098242db80f6662b62e2e66bc
+outs:
+- md5: 96c22545d7bd0e12a036018e1df7d3dd
+  path: SYB62_328_201904_Intentional Homicides and Other Crimes.csv
+  cache: true
+  metric: false
+  persist: false

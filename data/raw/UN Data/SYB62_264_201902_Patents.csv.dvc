@@ -1,0 +1,7 @@
+md5: 16fbdb8d0b3a92d7a57c152714006c79
+outs:
+- md5: e37b38fe8e1c514c90b87c5dec25c81a
+  path: SYB62_264_201902_Patents.csv
+  cache: true
+  metric: false
+  persist: false

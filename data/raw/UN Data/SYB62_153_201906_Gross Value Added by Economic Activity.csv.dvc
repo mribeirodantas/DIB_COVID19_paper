@@ -1,0 +1,7 @@
+md5: b64f1e229bc3a77bb956e39ae3c9fd44
+outs:
+- md5: 5874fff5667658c8e322a7ab6ca1fcf0
+  path: SYB62_153_201906_Gross Value Added by Economic Activity.csv
+  cache: true
+  metric: false
+  persist: false

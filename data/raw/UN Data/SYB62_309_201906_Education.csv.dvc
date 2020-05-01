@@ -1,0 +1,7 @@
+md5: 7f551ae64fb70ebd215da7f719f9ef51
+outs:
+- md5: 99e2f88a12e7f56ce0ecbabbf72e21c2
+  path: SYB62_309_201906_Education.csv
+  cache: true
+  metric: false
+  persist: false

@@ -1,0 +1,7 @@
+md5: 79cbc034b8b28faa09bbfccc16e71c41
+outs:
+- md5: 9c9d964d9036ceea96f864cd655e7e41
+  path: SYB58_35_Index of industrial production.csv
+  cache: true
+  metric: false
+  persist: false
