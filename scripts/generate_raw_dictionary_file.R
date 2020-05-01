@@ -212,6 +212,29 @@ df %>%
                                          '_per_100000_livebirths)_2015'),
                                   `Variable name`)) -> df
 
+# According to the file below, it's participation rate.
+# SYB62_329_201904_Labour Force and Unemployment.pdf
+df %>%
+  mutate(`Variable name` = ifelse(`Variable name` == paste0('labour_force_part',
+                                                            'icipation_total_',
+                                                            '2019'),
+                                  paste0('labour_force_participation_rate_tot',
+                                         'al_2019'),
+                                  `Variable name`)) %>%
+  mutate(`Variable name` = ifelse(`Variable name` == paste0('labour_force_part',
+                                                            'icipation_male_',
+                                                            '2019'),
+                                  paste0('labour_force_participation_rate_mal',
+                                         'e_2019'),
+                                  `Variable name`)) %>%
+  mutate(`Variable name` = ifelse(`Variable name` == paste0('labour_force_part',
+                                                            'icipation_female',
+                                                            '_2019'),
+                                  paste0('labour_force_participation_rate_fema',
+                                         'le_2019'),
+                                  `Variable name`)) -> df
+
+
 # Description
 df %>%
   mutate(Description = case_when(

@@ -335,6 +335,22 @@ id = which(colnames(preprocessed_dataset) ==
 colnames(preprocessed_dataset)[id] <- paste0('maternal_mortality_ratio_(deaths',
                                              '_per_100000_livebirths)_2015')
 
+# According to the file below, it's participation rate.
+# SYB62_329_201904_Labour Force and Unemployment.pdf
+id = which(colnames(preprocessed_dataset) == paste0('labour_force_participatio',
+                                                    'n_total_2019'))
+colnames(preprocessed_dataset)[id] <- paste0('labour_force_participation_rate_',
+                                             'total_2019')
+id = which(colnames(preprocessed_dataset) == paste0('labour_force_participatio',
+                                                    'n_female_2019'))
+colnames(preprocessed_dataset)[id] <- paste0('labour_force_participation_rate_',
+                                             'female_2019')
+id = which(colnames(preprocessed_dataset) == paste0('labour_force_participatio',
+                                                    'n_male_2019'))
+colnames(preprocessed_dataset)[id] <- paste0('labour_force_participation_rate_',
+                                             'male_2019')
+
+
 # Saving final preprocessed dataset ---------------------------------------
 
 # Save full dataset
