@@ -1,7 +1,0 @@
-md5: 3d266f6f2555087b41923baf7e41de3f
-outs:
-- md5: 71e6923a29fb9338878a002cab7013cd.dir
-  path: documentation
-  cache: true
-  metric: false
-  persist: false
