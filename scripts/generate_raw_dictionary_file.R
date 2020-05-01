@@ -188,7 +188,7 @@ df %>%
              'it means that this country does not have any death confirmed.'),
     TRUE ~ '')) -> df
 
-df$Filepath[c(174, 181:182, 190:192)] <- 'Does not apply. Engineered variable'
+df$Filepath[c(174, 180:182, 189:192)] <- 'Does not apply. Engineered variable'
 df$Filepath[c(175:179)] <- 'data/raw/COVID19_worldwide_raw.csv'
 df$Filepath[c(183:188)] <- 'data/raw/Global_Mobility_Report.csv'
 
@@ -271,7 +271,7 @@ df %>%
     `Variable name` == 'population_aged_0_to_14_years_old_(percentage)_2019' ~ 'Percentage of population 0-14 aged group.',
     `Variable name` == 'population_aged_60+_years_old_(percentage)_2019' ~ 'Percentage of population 60+ aged group.',
     `Variable name` == 'population_density_2019' ~ 'Population per square Kilometre',
-    `Variable name` == 'imports_cif_(millions_of_us_dollars)_2018' ~ ' The total value of imports (CIF) in millions of US dollars',
+    `Variable name` == 'imports_cif_(millions_of_us_dollars)_2018' ~ 'The total value of imports (CIF) in millions of US dollars',
     `Variable name` == 'exports_fob_(millions_of_us_dollars)_2018' ~ 'The total value of exports (FOB) in millions of US dollars',
     `Variable name` == 'balance_imports/exports_(millions_of_us_dollars)_2018' ~ 'Balance of trade in millions of US dollars',
     `Variable name` == 'balance_of_payments:_current_account_(millions_of_us_dollars)_2018' ~ 'Current account of the balance of payments in millions of US dollars (Description on: https://data.imf.org/api/document/download?key=60567161)',
@@ -283,10 +283,10 @@ df %>%
     `Variable name` == 'exchange_rates:_period_average_(national_currency_per_us_dollar)_2018' ~ 'National currency per US dollar, period average ',
     `Variable name` == 'land_area_(thousand_hectares)_2016' ~ 'Country area (in thousand of hectares) excluding area under inland waters and coastal waters (as defined by FAO: http://www.fao.org/faostat/)',
     `Variable name` == 'arable_land_(thousand_hectares)_2016' ~ 'The total of areas (in thousand of hectares) under temporary crops, temporary meadows and pastures, and land with temporary fallow. Arable land does not include land that is potentially cultivable but is not normally cultivated.',
-    `Variable name` == 'permanent_crops_(thousand_hectares)_2016' ~ '"Land cultivated (in thousand of hectares) with long-term crops which do not have to be replanted for several years, land under trees and shrubs producing flowers, and nurseries (except those for forest trees, which should be classified under ""Forestry""). Permanent meadows and pastures are excluded from land under permanent crops."',
+    `Variable name` == 'permanent_crops_(thousand_hectares)_2016' ~ 'Land cultivated (in thousand of hectares) with long-term crops which do not have to be replanted for several years, land under trees and shrubs producing flowers, and nurseries (except those for forest trees, which should be classified under ""Forestry""). Permanent meadows and pastures are excluded from land under permanent crops."',
     `Variable name` == 'forest_cover_(thousand_hectares)_2016' ~ 'Forest cover (in thousand of hectares) as defined by FAO (http://www.fao.org/faostat/)',
     `Variable name` == 'arable_land_(%_of_total_land_area)_2016' ~ 'The total of areas (in percentage) under temporary crops, temporary meadows and pastures, and land with temporary fallow. Arable land does not include land that is potentially cultivable but is not normally cultivated.',
-    `Variable name` == 'permanent_crops_(%_of_total_land_area)_2016' ~ '"Land cultivated (in percentage) with long-term crops which do not have to be replanted for several years, land under trees and shrubs producing flowers, and nurseries (except those for forest trees, which should be classified under ""Forestry""). Permanent meadows and pastures are excluded from land under permanent crops."',
+    `Variable name` == 'permanent_crops_(%_of_total_land_area)_2016' ~ 'Land cultivated (in percentage) with long-term crops which do not have to be replanted for several years, land under trees and shrubs producing flowers, and nurseries (except those for forest trees, which should be classified under ""Forestry""). Permanent meadows and pastures are excluded from land under permanent crops."',
     `Variable name` == 'forest_cover_(%_of_total_land_area)_2016' ~ 'Forest cover (in percentage) as defined by FAO (http://www.fao.org/faostat/)',
     `Variable name` == 'important_sites_for_terrestrial_biodiversity_protected_(%_of_total_sites_protected)_2018' ~ 'Proportion of important sites for terrestrial biodiversity that are covered by protected areas (https://unstats.un.org/sdgs/metadata/files/Metadata-15-01-02.pdf)',
     `Variable name` == 'agriculture_hunting_forestry_and_fishing_(%_of_gross_value_added)_2016' ~ 'Gross value added of Agricultura, Hunting, Forestry and Fishing (in percentage)',
@@ -395,11 +395,11 @@ df %>%
     `Variable name` == 'kidnapping_at_the_national_level_rate_per_100000_2016' ~ 'Rate of kidnappings by 100000 inhabitants.',
     `Variable name` == 'theft_at_the_national_level_rate_per_100000_population_2016' ~ 'Rate of theft by 100000 inhabitants.',
     `Variable name` == 'robbery_at_the_national_level_rate_per_100000_population_2016' ~ 'Rate of robbery by 100000 inhabitants.',
-    `Variable name` == 'labour_force_participation_total_2019' ~ 'Proportion of a country’s working-age population that engages actively in the labour market.',
+    `Variable name` == 'labour_force_participation_rate_total_2019' ~ 'Proportion of a country’s working-age population that engages actively in the labour market.',
     `Variable name` == 'unemployment_rate_total_2019' ~ 'Proportion of the labour force that does not have a job.',
-    `Variable name` == 'labour_force_participation_male_2019' ~ 'Proportion of a country’s working-age population (males) that engages actively in the labour market.',
+    `Variable name` == 'labour_force_participation_rate_male_2019' ~ 'Proportion of a country’s working-age population (males) that engages actively in the labour market.',
     `Variable name` == 'unemployment_rate_male_2019' ~ 'Proportion of the labour force that does not have a job (males).',
-    `Variable name` == 'labour_force_participation_female_2019' ~ 'Proportion of a country’s working-age population (females) that engages actively in the labour market.',
+    `Variable name` == 'labour_force_participation_rate_female_2019' ~ 'Proportion of a country’s working-age population (females) that engages actively in the labour market.',
     `Variable name` == 'unemployment_rate_female_2019' ~ 'Proportion of the labour force that does not have a job (females).',
     `Variable name` == 'major_trading_partner_1_(%_of_exports)_2018' ~ 'Percentage of total exports trade in US dollars with the major trading partner.',
     `Variable name` == 'major_trading_partner_1_(%_of_imports)_2018' ~ 'Percentage of total imports trade in US dollars with the major trading partner.',
