@@ -1,4 +1,4 @@
-md5: aefe90c8c32ff162e879353dbb26b366
+md5: 1ce4b5cd5bdd4d81b98594788530a329
 cmd: Rscript scripts/aggregate_UN_data.R
 deps:
 - md5: 9c9d964d9036ceea96f864cd655e7e41
@@ -74,7 +74,7 @@ deps:
   path: data/raw/UN Data/SYB63_176_202003_Tourist-Visitors Arrival and Expenditure.csv
 - md5: 510656f91274af57cc3851215d342d2c
   path: data/raw/UN Data/SYB63_325_202003_Expenditure on Health.csv
-- md5: c63a5aabc7f0e2a7f8fdffb5ac1a0c01
+- md5: 55729e04bf9430002250d653d399de88
   path: scripts/aggregate_UN_data.R
 outs:
 - md5: ac537d89c981b02641203d606123c78a

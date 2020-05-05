@@ -4,7 +4,8 @@ library(tidyr)
 
 # Read all raw datasets from UN into one dataframe ---------
 
-df <- list.files(path='data/raw/UN Data/', full.names = TRUE) %>%
+df <- list.files(path='data/raw/UN Data/', full.names = TRUE,
+                 pattern = '*.csv$') %>%
   lapply(read_delim, delim = ',', skip = 1) %>%
   bind_rows
 
