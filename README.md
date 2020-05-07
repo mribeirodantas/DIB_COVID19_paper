@@ -1,5 +1,19 @@
 # How to work with this repository
 
+# Paper published in Data in Brief
+Originally, this is the repository for the publication _"Dataset for country 
+profile and mobility analysis in the assessment of COVID19 pandemic"_ in the 
+journal _Data in Brief_. Even after the publication, we have kept updating it
+with the most updated data on COVID-19 and mobility. Therefore, right now this
+repository has more data than when the paper was published.
+
+If you want the dataset and data dictionary just like it was on the publication,
+click [here](https://data.mendeley.com/datasets/tggrsbz3bb/10). If you want the
+most updated version of the dataset and data dictionary, click
+[here](https://data.mendeley.com/datasets/tggrsbz3bb). The source code and
+pipelines are also updated. If you want to see the repository just like it was
+on the moment of the publication, you should check the tag v1.0 (git tag).
+
 ## Clone the DAGsHub repository
 `git clone https://dagshub.com/mrd/DIB_COVID19_paper.git`
 
@@ -14,6 +28,10 @@ If you're on GNU/Linux, you can install DVC with pip:
 `pip install dvc`
 
 More install options [here](https://dvc.org/doc/install).
+
+If you don't want the most updated version of this repository, but the version
+of the publication, you should move the repository back in time by typing:
+`git checkout tags/v1.0`
 
 ## Get data
 If you move into data/preprocessed/ you will see  that the folder is empty. Yes,
@@ -48,9 +66,6 @@ Well, maybe you want to *force* a reproduction fo the pipeline because... well,
 you want to see how it would be like. For this, you should run:
 
 `dvc repro -f preprocess.dvc`
-
-# Download
-This final dataset can also be downloaded from Mendeley Data by clicking [here](https://data.mendeley.com/datasets/tggrsbz3bb/10).
 
 
 
