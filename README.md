@@ -12,7 +12,9 @@ click [here](https://data.mendeley.com/datasets/tggrsbz3bb/10). If you want the
 most updated version of the dataset and data dictionary, click
 [here](https://data.mendeley.com/datasets/tggrsbz3bb). The source code and
 pipelines are also updated. If you want to see the repository just like it was
-on the moment of the publication, you should check the tag v1.0 (git tag).
+on the moment of the publication, you should check the tag v1.0 (git tag), or
+click
+[here](https://dagshub.com/mrd/DIB_COVID19_paper/src/b48b2af984394b26ac99decc6abd8c7f660c3e56).
 
 ## Clone the DAGsHub repository
 `git clone https://dagshub.com/mrd/DIB_COVID19_paper.git`
