@@ -3,18 +3,19 @@
 # Paper published in Data in Brief
 Originally, this is the repository for the publication _"Dataset for country 
 profile and mobility analysis in the assessment of COVID19 pandemic"_ in the 
-journal _Data in Brief_. Even after the publication, we have kept updating it
-with the most updated data on COVID-19 and mobility. Therefore, right now this
-repository has more data than when the paper was published.
+journal [Data in Brief](https://www.journals.elsevier.com/data-in-brief). You 
+can check the paper [here](https://doi.org/10.1016/j.dib.2020.105698). Even 
+after the publication, we still update it with the most updated data on 
+COVID-19 and mobility. Therefore, right now this repository has more data than 
+when the paper was published.
 
 If you want the dataset and data dictionary just like it was on the publication,
-click [here](https://data.mendeley.com/datasets/tggrsbz3bb/10). If you want the
+click [here](https://data.mendeley.com/datasets/tggrsbz3bb/11). If you want the
 most updated version of the dataset and data dictionary, click
 [here](https://data.mendeley.com/datasets/tggrsbz3bb). The source code and
 pipelines are also updated. If you want to see the repository just like it was
-on the moment of the publication, you should check the tag v1.0 (git tag), or
-click
-[here](https://dagshub.com/mrd/DIB_COVID19_paper/src/b48b2af984394b26ac99decc6abd8c7f660c3e56).
+on the moment of the publication, click
+[here](https://dagshub.com/mrd/DIB_COVID19_paper/src/39a9a8e54b142cf415c8c87d04e89362b48b24dc).
 
 ## Clone the DAGsHub repository
 `git clone https://dagshub.com/mrd/DIB_COVID19_paper.git`
