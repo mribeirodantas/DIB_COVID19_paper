@@ -118,15 +118,6 @@ rm(covid)
 #
 ####
 
-# GMR has data on Tajikistan. Updates info
-# Tajikistan has not had any case related to COVID-19 so far.
-# https://reliefweb.int/report/tajikistan/covid-19-tajikistan-situation-report-4-27-april-2020
-preprocessed_dataset %>%
-  mutate(new_cases = ifelse(locality_name == 'Tajikistan',
-                            0, new_cases)) %>%
-  mutate(new_deaths = ifelse(locality_name == 'Tajikistan',
-                             0, new_deaths)) -> preprocessed_dataset
-
 # Create column with accumulate cases/death
 preprocessed_dataset %>%
   group_by(locality_name, plot_name, region_name) %>%
@@ -243,15 +234,6 @@ preprocessed_dataset %>%
                    as.numeric(date - min(date[acc_cases > 0])),
                    0)) %>%
   ungroup() -> preprocessed_dataset
-# There is a warning here, because Tajikistan doesn't have any date with
-# cases. So the minimum of nothing will throw a warning.
-# preprocessed_dataset %>%
-#   group_by(locality_name) %>%
-#   arrange(date) %>%
-#   filter(date == '2020-04-17') %>%
-#   filter(acc_cases == 0) %>%
-#   select(locality_name) %>%
-#   unique
 
 # Add n_days_since_1st_death column
 preprocessed_dataset %>%
