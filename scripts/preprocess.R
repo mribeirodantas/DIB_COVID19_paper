@@ -75,10 +75,6 @@ covid %>%
                         ' ',
                         locality_name)) -> covid
 
-covid_hk_re %>%
-  # Convert date to Date
-  mutate(date, date = mdy(covid_hk_re$date)) -> covid_hk_re
-
 covid <- rbind(covid, covid_hk_re)
 
 rm(covid_hk_re)
