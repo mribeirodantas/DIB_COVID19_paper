@@ -136,7 +136,7 @@ if (max(latest_JHU_dataset$date) > last_date) {
 # Update remote / git repo ------------------------------------------------
 
 if (repro == TRUE) {
-  system('dvc repro preprocess.dvc')
+  # system('dvc repro preprocess.dvc')
   system(paste0('git add data/raw/COVID19_worldwide_raw.csv.dvc preprocess.dvc',
                 ' data/raw/hk-reunion-covid-19.csv.dvc data/raw/Global_Mobilit',
                 'y_Report.csv.dvc'))

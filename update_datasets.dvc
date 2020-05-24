@@ -1,7 +1,7 @@
-md5: 78efe885ff1e307e090543fbb8a8fcc5
+md5: 1caa67b4b96fa94bded92f91ad8338c8
 cmd: Rscript scripts/check_update.R
 deps:
-- md5: 46cb6f115462e17dd9625e976dd08b68
+- md5: 6523b7116c21580b99f40095a6685726
   path: scripts/check_update.R
 outs:
 - md5: 90025f26d6dd50fe73b79f6378298bc5
@@ -9,12 +9,12 @@ outs:
   cache: true
   metric: false
   persist: true
-- md5: 52aa65094735cc1e8bcbf97e837e6734
+- md5: ee207d46bdca8cb101861f65f2b5fcfa
   path: data/raw/COVID19_worldwide_raw.csv
   cache: true
   metric: false
   persist: true
-- md5: 6d479723313e570df97fbc82afe5de2d
+- md5: bb9fe576ae85d2e3f202c919f030e5f9
   path: data/raw/hk-reunion-covid-19.csv
   cache: true
   metric: false

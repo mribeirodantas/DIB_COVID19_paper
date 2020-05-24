@@ -37,6 +37,11 @@ covid_hk_re <- read_delim(file = 'data/raw/hk-reunion-covid-19.csv',
                           col_types = cols('c', 'c', 'd', 'd'),
                           delim = ',')
 
+covid_hk_re %>%
+  mutate(locality_name = ifelse(locality_name == 'Reunion',
+                                'Réunion',
+                                locality_name)) -> covid_hk_re
+
 # Country details from UN Data
 country_details <- read_delim(file = 'data/raw/UN_dataset.tsv', delim = '\t',
                             col_types = paste(c('c',
