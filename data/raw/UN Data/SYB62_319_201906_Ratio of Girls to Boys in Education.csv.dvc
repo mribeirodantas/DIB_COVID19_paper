@@ -1,7 +1,3 @@
-md5: ae071e60c72e1e173613ace508e114f3
 outs:
 - md5: 20a7e7b9b64b62d0707cc913ba144d47
   path: SYB62_319_201906_Ratio of Girls to Boys in Education.csv
-  cache: true
-  metric: false
-  persist: false

@@ -1,7 +1,3 @@
-md5: 7aa984393f5c3bb226805cb9653f64af
 outs:
 - md5: 62a066fa45d106eccdf36e236298c028
   path: SYB61_253_Population Growth Rates in Urban areas and Capital cities.csv
-  cache: true
-  metric: false
-  persist: false

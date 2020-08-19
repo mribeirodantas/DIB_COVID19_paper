@@ -1,22 +1,16 @@
-md5: 9ae12bfc5bc4453767fb935c739d606d
+md5: 1daafa289f2b989c69e0f9375a666167
 cmd: Rscript scripts/check_update.R
 deps:
-- md5: 6523b7116c21580b99f40095a6685726
+- md5: 306f64fac5df431d8cd661b9d5b1890d
   path: scripts/check_update.R
 outs:
-- md5: 277567cf32ccb37284189b354e22b455
+- md5: bf0d393e8adb1a89b3388d227c3ac43e
   path: data/raw/Global_Mobility_Report.csv
-  cache: true
-  metric: false
   persist: true
-- md5: bde10be2c1f175675960a08d0c759368
+- md5: 47d4e2dd5a724d0a91d098ad628a11d6
   path: data/raw/COVID19_worldwide_raw.csv
-  cache: true
-  metric: false
   persist: true
-- md5: e6f4cb1116cd333d6982535a612e91a8
+- md5: 5948b29125eaf5ea963609226d93160c
   path: data/raw/hk-reunion-covid-19.csv
-  cache: true
-  metric: false
   persist: true
 always_changed: true

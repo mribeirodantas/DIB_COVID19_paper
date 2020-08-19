@@ -1,7 +1,3 @@
-md5: 715dba65d5677d7f4686ab7e4584befc
 outs:
 - md5: ba4b5812da8a9700308bc21924225e50
   path: SYB60_312_Carbon Dioxide Emission Estimates.csv
-  cache: true
-  metric: false
-  persist: false

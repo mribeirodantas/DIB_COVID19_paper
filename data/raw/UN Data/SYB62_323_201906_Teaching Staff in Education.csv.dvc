@@ -1,7 +1,3 @@
-md5: add7b7a08fd46399f0713127f3f8798c
 outs:
 - md5: 2507d9006397678f2fc4f688127ed226
   path: SYB62_323_201906_Teaching Staff in Education.csv
-  cache: true
-  metric: false
-  persist: false

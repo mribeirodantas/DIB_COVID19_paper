@@ -1,7 +1,3 @@
-md5: 5ba5b2ba7645a3e684059231d6d69243
 outs:
 - md5: 5b8d619ec7fe1bd845a74a0fb99745ef
   path: SYB62_128_201907_Consumer Price Index.csv
-  cache: true
-  metric: false
-  persist: false

@@ -1,7 +1,3 @@
-md5: 3b1054aaad3eb8c9b400bba5de95350f
 outs:
 - md5: 48da8b4d014f49770a81534df5f1d9cc
   path: SYB62_230_201904_GDP and GDP Per Capita.csv
-  cache: true
-  metric: false
-  persist: false

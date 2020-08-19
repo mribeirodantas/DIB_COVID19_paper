@@ -10,26 +10,32 @@ library(lubridate)
 # Google Mobility Report (GMR) dataset
 
 raw_dataset <- read_csv(file = 'data/raw/Global_Mobility_Report.csv',
-                        col_types = paste(c(rep('c', 4),
+                        col_types = paste(c(rep('c', 7),
                                                 'D',
                                                 rep('d', 6)),
                                               collapse=''))
 
 colnames(raw_dataset) <- c('locality_code', 'locality_name', 'region_name',
-                           'county_name', 'date', 'retail_recreation',
+                           'county_name', 'metro_area', 'iso_3166_2',
+                           'census_fips', 'date', 'retail_recreation',
                            'grocery_pharmacy', 'parks', 'transit_stations',
                            'workplaces', 'residential')
+# Remove new columns
+raw_dataset <- raw_dataset %>%
+  select(-c('iso_3166_2', 'census_fips'))
 
 # COVID19 dataset from ECDC
 
 covid <- read_delim(file = 'data/raw/COVID19_worldwide_raw.csv', na = '',
                     col_types = cols('c', 'i', 'i', 'i', 'i', 'i', 'c', 'c',
-                                     'c', 'i', 'c'),
+                                     'c', 'i', 'c', 'c'),
                     delim = ',')
 
 colnames(covid) <- c('date', 'day', 'month', 'year', 'new_cases', 'new_deaths',
                      'locality_name', 'country_id', 'territory_id',
-                     'pop_data_2018', 'continent')
+                     'pop_data_2018', 'continent', 'cumulative')
+covid <- covid %>%
+  select(-c('cumulative'))
 
 # COVID-19 data for Réunion and Hong Kong  that are missing in the ECDC dataset
 # Source: John Hopkins University https://github.com/CSSEGISandData/COVID-19
@@ -58,9 +64,14 @@ country_details <- read_delim(file = 'data/raw/UN_dataset.tsv', delim = '\t',
 ####
 
 # Create a long table from the wide original version
-preprocessed_dataset <- pivot_longer(raw_dataset, cols=6:11, names_to = 'plot_name',
+preprocessed_dataset <- pivot_longer(raw_dataset, cols=7:12, names_to = 'plot_name',
                          values_to = 'variation')
 rm(raw_dataset)
+
+# Remove rows on metrpolitan area
+preprocessed_dataset <- preprocessed_dataset %>%
+  filter(is.na(metro_area)) %>%
+  select(-c(metro_area))
 
 ####
 #
@@ -224,7 +235,10 @@ preprocessed_dataset %>%
 
 # Bring plot_names from row to column
 preprocessed_dataset %>%
-  pivot_wider(names_from = plot_name, values_from = variation) -> preprocessed_dataset
+group_by(plot_name) %>%
+  mutate(row = row_number()) %>%
+  tidyr::pivot_wider(names_from = plot_name, values_from = variation) %>%
+  select(-row) -> preprocessed_dataset
 
 # Add n_days_since_1st_case column
 preprocessed_dataset %>%
@@ -332,7 +346,7 @@ id = which(colnames(preprocessed_dataset) == paste0('labour_force_participatio',
                                                     'n_male_2019'))
 colnames(preprocessed_dataset)[id] <- paste0('labour_force_participation_rate_',
                                              'male_2019')
-
+rm(id)
 
 # Saving final preprocessed dataset ---------------------------------------
 

@@ -1,7 +1,3 @@
-md5: a0cb1d87cf1f744e6e3a5c55bfb0c1ea
 outs:
 - md5: cfc1991fad2187db027cafe59d113d7a
   path: SYB62_130_201907_Exchange Rates.csv
-  cache: true
-  metric: false
-  persist: false

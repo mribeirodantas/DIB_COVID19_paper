@@ -1,7 +1,3 @@
-md5: 02456d415467ca90b628627be45256e3
 outs:
 - md5: 41e6d2f1e0c44d5479e19164171a3da0
   path: SYB62_245_201905_Public Expenditure on Education.csv
-  cache: true
-  metric: false
-  persist: false

@@ -1,7 +1,3 @@
-md5: 85eb5966c5c9b87a916c69fd993433dd
 outs:
 - md5: b9176a587c18fbc9084c67d4bc440bdb
   path: SYB62_246_201907_Population Growth, Fertility and Mortality Indicators.csv
-  cache: true
-  metric: false
-  persist: false

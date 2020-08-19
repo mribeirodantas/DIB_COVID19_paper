@@ -30,6 +30,7 @@ latest_GMR_dataset <- read_csv(file = GMR_url,
                                                      country_region= 'c',
                                                      sub_region_1 = 'c',
                                                      sub_region_2 = 'c',
+                                                     metro_area = 'c',
                                                      date = 'D',
                                                      retail_and_recreation_percent_change_from_baseline = 'd',
                                                      grocery_and_pharmacy_percent_change_from_baseline = 'd',
@@ -158,15 +159,15 @@ if (max(latest_JHU_dataset$date) > last_date) {
 
 # Update remote / git repo ------------------------------------------------
 
-if (repro == TRUE) {
-  # system('dvc repro preprocess.dvc')
-  system(paste0('git add data/raw/COVID19_worldwide_raw.csv.dvc preprocess.dvc',
-                ' data/raw/hk-reunion-covid-19.csv.dvc data/raw/Global_Mobilit',
-                'y_Report.csv.dvc'))
-  commit_msg <- paste0('Updates raw datasets \'', today(), '\'')
-  system(paste0('git commit -m \"', commit_msg, '\"'))
-  system('git push')
-} else {
-  print('Everything is up to date. Nothing else to do.')
-}
-
+#if (repro == TRUE) {
+#  system('dvc repro preprocess.dvc')
+#  system(paste0('git add data/raw/COVID19_worldwide_raw.csv.dvc preprocess.dvc',
+#                ' data/raw/hk-reunion-covid-19.csv.dvc data/raw/Global_Mobilit',
+#                'y_Report.csv.dvc'))
+#  commit_msg <- paste0('Updates raw datasets \'', today(), '\'')
+#  system(paste0('git commit -m \"', commit_msg, '\"'))
+#  system('git push')
+#} else {
+#  print('Everything is up to date. Nothing else to do.')
+#}
+##

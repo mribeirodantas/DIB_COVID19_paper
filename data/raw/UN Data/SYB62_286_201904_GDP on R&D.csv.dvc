@@ -1,7 +1,3 @@
-md5: 0155b63f043fd3b6fa8ffcea8f34820d
 outs:
 - md5: 4298efc9d34e2031ab78355ecf332d2e
   path: SYB62_286_201904_GDP on R&D.csv
-  cache: true
-  metric: false
-  persist: false

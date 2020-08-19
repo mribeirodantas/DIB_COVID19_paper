@@ -1,7 +1,3 @@
-md5: dbae073c33bc309bf72f53371841869a
 outs:
 - md5: e12af62d34294ea0361858f6d54270ff
   path: SYB62_125_201907_Balance of Payments.csv
-  cache: true
-  metric: false
-  persist: false

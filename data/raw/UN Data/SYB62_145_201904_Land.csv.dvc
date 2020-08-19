@@ -1,7 +1,3 @@
-md5: 5d492a619cbb334059e9f3c076f4dd48
 outs:
 - md5: e8df602fccc6523fa7d3256c61d5914e
   path: SYB62_145_201904_Land.csv
-  cache: true
-  metric: false
-  persist: false

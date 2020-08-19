@@ -1,7 +1,3 @@
-md5: 30839962a05d9a0da5099d86ee28b249
 outs:
 - md5: 02c9b22534096171365618e7543220bb
   path: SYB62_123_201907_Total Imports, Exports and Balance of Trade.csv
-  cache: true
-  metric: false
-  persist: false

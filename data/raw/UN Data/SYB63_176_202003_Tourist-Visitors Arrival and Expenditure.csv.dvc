@@ -1,7 +1,3 @@
-md5: cea977e626da224e7adb5fefad4490ec
 outs:
 - md5: 8f52e307d5ec77056bf7ca6d0755fe94
   path: SYB63_176_202003_Tourist-Visitors Arrival and Expenditure.csv
-  cache: true
-  metric: false
-  persist: false

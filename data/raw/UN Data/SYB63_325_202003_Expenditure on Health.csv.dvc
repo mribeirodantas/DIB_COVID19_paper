@@ -1,7 +1,3 @@
-md5: 2c664492cfa2323923625687685e7d77
 outs:
 - md5: 510656f91274af57cc3851215d342d2c
   path: SYB63_325_202003_Expenditure on Health.csv
-  cache: true
-  metric: false
-  persist: false

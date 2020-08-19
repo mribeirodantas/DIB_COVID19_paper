@@ -1,7 +1,3 @@
-md5: a3bf3e277bff12f3615c0a13d363bc98
 outs:
 - md5: ee78b455c64667c8406810602877bfbe
   path: SYB61_12_Agricultural Production Indices.csv
-  cache: true
-  metric: false
-  persist: false
