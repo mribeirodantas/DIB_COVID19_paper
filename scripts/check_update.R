@@ -8,10 +8,17 @@ repro <- FALSE
 # Checking Google Community Mobility Reports data. ------------------------
 
 read_csv(file = 'data/raw/Global_Mobility_Report.csv',
-         col_types = paste(c(rep('c', 4),
-                             'D',
-                             rep('d', 6)),
-                           collapse='')) %>%
+         col_types = cols_only(country_region_code = 'c',
+                               country_region= 'c',
+                               sub_region_1 = 'c',
+                               sub_region_2 = 'c',
+                               date = 'D',
+                               retail_and_recreation_percent_change_from_baseline = 'd',
+                               grocery_and_pharmacy_percent_change_from_baseline = 'd',
+                               parks_percent_change_from_baseline = 'd',
+                               transit_stations_percent_change_from_baseline = 'd',
+                               workplaces_percent_change_from_baseline = 'd',
+                               residential_percent_change_from_baseline = 'd')) %>%
   select(date) %>%
   pull %>%
   max -> last_date
@@ -19,10 +26,17 @@ read_csv(file = 'data/raw/Global_Mobility_Report.csv',
 GMR_url <- paste0('https://www.gstatic.com/covid19/mobility/',
                   'Global_Mobility_Report.csv')
 latest_GMR_dataset <- read_csv(file = GMR_url,
-                               col_types = paste(c(rep('c', 4),
-                                                   'D',
-                                                   rep('d', 6)),
-                                                 collapse=''))
+                               col_types = cols_only(country_region_code = 'c',
+                                                     country_region= 'c',
+                                                     sub_region_1 = 'c',
+                                                     sub_region_2 = 'c',
+                                                     date = 'D',
+                                                     retail_and_recreation_percent_change_from_baseline = 'd',
+                                                     grocery_and_pharmacy_percent_change_from_baseline = 'd',
+                                                     parks_percent_change_from_baseline = 'd',
+                                                     transit_stations_percent_change_from_baseline = 'd',
+                                                     workplaces_percent_change_from_baseline = 'd',
+                                                     residential_percent_change_from_baseline = 'd'))
 
 if (max(latest_GMR_dataset$date) > last_date) {
   print(paste0('There is more data available from Google Community Mobility ',
@@ -39,8 +53,11 @@ if (max(latest_GMR_dataset$date) > last_date) {
 # Checking ECDC data ------------------------------------------------------
 
 read_delim(file = 'data/raw/COVID19_worldwide_raw.csv', na = '',
-           col_types = cols('c', 'i', 'i', 'i', 'i', 'i', 'c', 'c',
-                            'c', 'i', 'c'),
+           col_types = cols_only(dateRep = 'c', day = 'i', month = 'i',
+                                 year = 'i', cases = 'i', deaths = 'i',
+                                 countriesAndTerritories = 'c', geoId = 'c',
+                                 countryterritoryCode = 'c',
+                                 popData2018 = 'i', continentExp = 'c'),
            delim = ',') %>%
   select(dateRep) %>%
   pull %>%
@@ -49,8 +66,13 @@ read_delim(file = 'data/raw/COVID19_worldwide_raw.csv', na = '',
 
 ECDC_url <- 'https://opendata.ecdc.europa.eu/covid19/casedistribution/csv'
 latest_ECDC_dataset <- read_delim(file = ECDC_url, na = '',
-                                  col_types = cols('c', 'i', 'i', 'i', 'i', 'i',
-                                                   'c', 'c', 'c', 'i', 'c'),
+                                  col_types = cols_only(dateRep = 'c', day = 'i', month = 'i',
+                                                        year = 'i', cases = 'i', deaths = 'i',
+                                                        countriesAndTerritories = 'c', geoId = 'c',
+                                                        countryterritoryCode = 'c',
+                                                        # The fact it's 2019 now does not matter,
+                                                        # after all, we do not use this variable
+                                                        popData2019 = 'i', continentExp = 'c'),
                                   delim = ',')
 
 if (max(dmy(latest_ECDC_dataset$dateRep)) > last_date) {
@@ -68,7 +90,8 @@ if (max(dmy(latest_ECDC_dataset$dateRep)) > last_date) {
 # Checking JHU data ----------------------------------------------------
 
 read_delim(file = 'data/raw/hk-reunion-covid-19.csv', na = '',
-           col_types = cols('c', 'c', 'd', 'd'),
+           col_types = cols_only(locality_name = 'c', date = 'c',
+                                 new_cases = 'd', new_deaths = 'd'),
            delim = ',') %>%
   select(date) %>%
   pull %>%
